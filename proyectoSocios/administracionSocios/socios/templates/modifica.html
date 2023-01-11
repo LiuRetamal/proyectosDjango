@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Modifica Socio</title>
+</head>
+<body>
+    <h1>Modifica Socio</h1>
+    <form action="modificaregistro/{{socio.id}}" method="post">
+        {% csrf_token %} <!--Obligatorios en metodos POST-->
+        Nombre:<br>
+        <input name="nom"  value="{{ socio.nombre}}">
+        <br><br>
+        Apellidos:<br>
+        <input name="apell" value="{{ socio.apellidos}}"> 
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

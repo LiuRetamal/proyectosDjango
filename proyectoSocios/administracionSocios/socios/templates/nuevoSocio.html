@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nuevo Socio</title>
+</head>
+<body>
+    <h1>Nuevo Socio</h1>
+    <form action="nuevoregistro/" method="post">
+        {% csrf_token %} <!--Obligatorios en metodos POST-->
+        Nombre:<br>
+        <input name="nom">
+        <br><br>
+        Apellidos:<br>
+        <input name="apell">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
