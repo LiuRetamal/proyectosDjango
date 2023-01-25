@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Propósitos 2023</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+
+        hr {
+            border: 1px solid black;
+        }
+
+        table {
+            margin-left: 15rem;
+            padding: 1rem;
+        }
+
+        td {
+            padding: 2rem;
+            background-color: lightskyblue;
+        }
+
+        button {
+            margin-top: 2rem;
+
+        }
+
+        input {
+            margin-top: 1rem;
+        }
+
+        a {
+            font-weight: bold;
+            color: black;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Propósitos para 2023</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Propósitos</th>
+                <th>Fecha</th>
+                <th>Conseguido</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in propositos %}
+            <tr>
+                <!--Para la descripcion del Proposito-->
+                <td>
+                    {% if p.conseguido %}
+                        <del>{{ p.proposito }}</del>
+                    {% else %}
+                        {{ p.proposito }} ||
+                        <a href="modificar/{{ p.id }}">Modificar</a>
+                    {% endif %}
+                </td>
+                <!--Para la fecha del proposito-->
+                <td>
+                    {% if p.conseguido %}
+                        <del>
+                            {{ p.fechaObjetivo }}
+                        </del>
+                    {% else %}
+                        {% if p.fechaObjetivo > fechaHoy %} 
+                            {{ p.fechaObjetivo }} 
+                        {% else %}
+                            <span style="color:red">{{ p.fechaObjetivo }}</span>
+                        {% endif %}  ||
+                           
+                        <a href="cambiar/{{ p.id }}">Cambiar</a>
+                    {% endif %}
+                </td>
+                <!-- Para marcar que se ha realizado el proposito -->
+                <td>
+                    {% if p.conseguido %}
+                        <a href="anadir/{{ p.id }}"> Añadir de Nuevo</a>
+                    {% else %}
+                        <a href="terminado/{{ p.id }}">si</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="eliminar/{{ p.id }}">Borrar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <form action="nuevo" method="get">
+        Nuevo Proposito: <input type="text" placeholder="introduce un nuevo proposito" name="proposito"><br>
+        Fecha: <input type="date" name="fechaObjetivo"> <br>
+        <input type="submit" value="Enviar" class="boton">
+    </form>
+</body>
+
+</html>

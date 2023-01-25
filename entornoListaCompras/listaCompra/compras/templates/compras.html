@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de la Compra</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+
+        hr {
+            border: 1px solid black;
+        }
+
+        ul {
+            list-style: none;
+        }
+        button{
+            margin-top: 2rem;
+            
+        }
+        input{
+            margin-top: 1rem;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Lista de la compra</h1>
     <form action="nuevo" method="get">
-        Nueva compra: <input type="text" name="nuevoElemento">
+        <h2>Nueva compra: </h2><br>
+        <b>Producto:</b><input type="text" name="producto" required> <br>
+        <b>Cantidad:</b><input type="text" name="cantidad" required> <br>
+        <b>Unidad:</b><input type="text" name="unidad" required> <br>
         <button type="submit">Crear</button>
     </form>
+    <br>
+    <hr>
     <ul>
-        {% for c in compras %}
-            <li>{{ c.producto }}</li>
-        {% endfor %}
+    
+    {% for c in compras %}
+        {% if c.comprado %}
+            <li><del><b>{{ c.producto }} -> </b>{{ c.cantidad }} {{ c.unidad }} // <a href="anadir/{{ c.id }}"> Añadir</a> <a href="eliminar/{{ c.id }}">Eliminar</a></del></li>
+        {% else %}
+            <li><b>{{ c.producto }} -> </b>{{ c.cantidad }} {{ c.unidad }} // <a href="comprado/{{ c.id }}"> Comprado</a></li>
+        {% endif %}
+            
+    {% endfor %}
     </ul>
 </body>
+
 </html>
