@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camion</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'camiones/css/estilos.css' %}">
+</head>
+
+<body>
+    <h1>{{ camiones.marca|linebreaks }}{{ camiones.modelo }}</h1>
+    <p>
+        <img src="/media/{{ camiones.imagen }}"></img>
+    </p>
+    <div>
+        <h3>Descripcion:</h3>
+        <p>{{ camiones.descripcion|linebreaks }}</p>
+    </div>
+    <div>
+        <h3>Kilometros:</h3>
+        <p> {{ camiones.kilometros }} km</p>
+    </div>
+    <div>
+        <h3>Precio:</h3>
+        <p> {{ camiones.precio }} €</p>
+    </div>
+    
+    <p>{{ camiones.created }}</p>
+    <p>{{ camiones.updated }}</p>
+    <div>
+        <h3>Categoria:</h3>
+        {% for cam in camiones.categorias.all %}
+            <p>{{cam.nombre}}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <h3>Autor:</h3>
+        <p>{{ camiones.author }}</p>
+    </div>
+    <a class="links" href="{% url 'listado' %}">Atrás</a>
+    {% include 'camiones/includes/camiones_updatemodif.html' %}
+</body>
+
+</html>

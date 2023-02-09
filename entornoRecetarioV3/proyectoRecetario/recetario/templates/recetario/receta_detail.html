@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receta</title>
+</head>
+
+<body>
+    <h1>Detalles de {{ receta.nombre }}</h1>
+
+    <p>{{ receta.subnombre }}</p>
+    <p>
+        <img src="/media/{{ receta.imagen }}"></img>
+    </p>
+    <h3>Ingredientes:</h3>
+    <p> {{ receta.ingredientes|linebreaks }}</p>
+    <h3>Pasos:</h3>
+    <p>{{ receta.receta|linebreaks }}</p>
+    <p>{{ receta.created }}</p>
+    <p>{{ receta.updated }}</p>
+    <h3>Categoria:</h3>
+    {% for cat in receta.categorias.all %}
+        <p>{{cat.nombre}}</p>
+    {% endfor %}
+    <h3>Autor:</h3>
+    <p>{{ receta.author }}</p>
+
+    {% include 'recetario/includes/receta_updatemodif.html' %}
+    <!-- <a href="{% url 'borrar' receta.id %}">Borrar</a>
+    <hr>
+    <a href="{% url 'modificar' receta.id %}">Modificar</a> -->
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Venta Camion</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'camiones/css/estilos.css' %}">
+    <style>
+        td{
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Nuevo Camion</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table id="miTabla">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Crear" class="crear">
+    </form>
+    <a class="links" href="{% url 'listado' %}">Atrás</a>
+</body>
+
+</html>

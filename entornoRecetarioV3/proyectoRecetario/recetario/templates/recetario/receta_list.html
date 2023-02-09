@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Recetas</title>
+</head>
+<body>
+    <!-- <a href="{% url 'crear' %}">Crear Receta</a> -->
+    {% include 'recetario/includes/receta_crear.html' %}
+    <h1>Listado de Recetas</h1>
+    
+           <ul>
+                {% for r in receta_list %}
+                    <li><a href="{% url 'detalle' r.id %}">{{ r.nombre }}</a><br>{{ r.subnombre }}</li>
+                {% endfor %}
+           </ul>
+           <hr>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{% if request.user.is_authenticated %}
+    <a class="links" href="{% url 'borrar' camiones.id %}">Borrar</a>
+
+    <a class="links" href="{% url 'modificar' camiones.id %}">Modificar</a>
+
+{% endif %}

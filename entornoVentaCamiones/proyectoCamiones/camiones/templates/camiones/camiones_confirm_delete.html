@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta Camion</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'camiones/css/estilos.css' %}">
+</head>
+
+<body>
+    <form method="post" class="borrado">
+        {% csrf_token %}
+        <p>¿Está seguro de que quiere borrar {{ camiones.marca|linebreaks }}{{ camiones.modelo }}"?</p>
+        {{ form }}
+        <input type="submit" value="Confirmar" class="crear1">
+    </form>
+    <a class="links" href="{% url 'listado' %}">Atrás</a>
+</body>
+
+</html>

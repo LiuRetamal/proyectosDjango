@@ -1,0 +1,101 @@
+body{
+    color: black;
+    background-color: lightcyan;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding-bottom: 5rem;
+} 
+h1{
+    font-size: 5rem;
+    color:lightseagreen;
+    text-transform: uppercase ;
+}
+a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-style: bold;
+    font-size: 2rem;
+}
+.listado{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.include{
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+.camiones{
+    display: grid;
+    grid-column: 1/4;
+    grid-row: 1/2;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    padding: 5rem;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    width: 90%;
+    height: 5rem;
+}
+.camion{
+    background-color: lightseagreen;
+    border-radius: 10rem;
+    padding-top: 1rem;
+}
+img{
+    width: 20%;
+    height: auto;
+}
+.crearIni{
+    color: black;
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 5rem;
+}
+.links{
+    color: black;
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 5rem;
+}
+input{
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 2rem;
+    width: 20rem;
+    height: 1.5rem;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.crear{
+    margin-right: 42rem;
+    color: black;
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 5rem;
+    border: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    width: 12rem;
+    height: 3rem;
+}
+form{
+    margin-left: 40rem;
+    padding-bottom: 3rem;
+}
+.borrado{
+    margin-top: 10rem;
+    margin-left: 1rem;
+}
+.crear1{
+    color: black;
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 5rem;
+    border: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    width: 12rem;
+    height: 3rem;
+}
